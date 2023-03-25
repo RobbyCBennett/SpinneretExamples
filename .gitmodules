@@ -1,0 +1,3 @@
+[submodule "spinneret"]
+	path = spinneret
+	url = git@github.com:RobbyCBennett/spinneret.git

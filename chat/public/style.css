@@ -1,0 +1,74 @@
+:root {
+	font-size: 24px;
+}
+
+body, input {
+	color: white;
+	font-family: system-ui;
+	font-size: 1rem;
+}
+body {
+	background: #181a1b;
+	margin: 1rem;
+}
+
+.container {
+	display: flex;
+	width: 100%;
+	height: calc(100vh - 2rem);
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+	margin: 0 auto;
+}
+@media (min-width: 992px) {
+	.container {
+		width: calc(992px - 2rem);
+	}
+}
+
+#messages {
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+#messages:hover {
+	overflow-y: overlay;
+}
+::-webkit-scrollbar {
+	width: 0.25rem;
+}
+::-webkit-scrollbar-thumb {
+	background: #3e424266;
+	cursor: pointer;
+}
+
+.message, input {
+	background: #0e0f0f;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+}
+.message {
+	width: fit-content;
+	max-width: calc(50% - 0.5rem);
+	box-sizing: border-box;
+}
+.message:not(:first-child) {
+	margin-top: 1rem;
+}
+.message.info::before {
+	content: '🛈 ';
+}
+.message.me {
+	margin-left: auto;
+}
+
+input {
+	border: none;
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+}
+#sending {
+	margin-top: 1rem;
+}
