@@ -10,10 +10,7 @@ const Server  = require('../spinneret/src/server');
 
 
 // Instantiate
-const env = new Env([
-	{ filename: '.env' },
-	{ process: true },
-]);
+const env = new Env();
 const server = new Server();
 
 
@@ -65,7 +62,11 @@ server.ws('message', function(soc)
 
 server.ws('open', function(soc)
 {
-	// Add soc to map
+	// When the socket is open too long, end it
+	soc.setTimeout(env.SOCKET_TIMEOUT);
+	soc.on('timeout', soc.end);
+
+	// Add socket to map
 	all.set(socI, soc);
 	soc.i = socI;
 
@@ -86,4 +87,5 @@ server.ws('open', function(soc)
 // Listen
 server.listen({
 	port: env.PORT,
+	requestTimeout: env.REQUEST_TIMEOUT,
 });
