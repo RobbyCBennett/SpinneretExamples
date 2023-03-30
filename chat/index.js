@@ -5,12 +5,12 @@
 const fs = require('node:fs');
 
 // Import classes from modules
-const Env     = require('../spinneret/src/env');
-const Server  = require('../spinneret/src/server');
+const Env    = require('../spinneret/src/env');
+const Server = require('../spinneret/src/server');
 
 
 // Instantiate
-const env = new Env();
+const env    = new Env();
 const server = new Server();
 
 
