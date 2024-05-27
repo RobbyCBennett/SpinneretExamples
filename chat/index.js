@@ -1,10 +1,7 @@
 'use strict';
 
 
-// Import node module
-const fs = require('node:fs');
-
-// Import classes from modules
+// Import Spinneret classes
 const Env    = require('../spinneret/src/env');
 const Server = require('../spinneret/src/server');
 
@@ -15,12 +12,12 @@ const server = new Server();
 
 
 // Middleware
-server.midAsync(
-	server.midReqBodyJson,
-	server.midReqBodyOther,
-	server.midReqUrlParams,
-	server.midResDefaults,
-	server.midResEnd,
+server.midApiAsync(
+	server.midApiReqBodyJson,
+	server.midApiReqBodyOther,
+	server.midApiReqUrlParams,
+	server.midApiResDefaults,
+	server.midApiResEnd,
 );
 
 
